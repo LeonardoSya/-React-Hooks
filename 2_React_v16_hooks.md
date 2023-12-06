@@ -1,3 +1,11 @@
+<!--
+ * @Author: LeonardoSya 2246866774@qq.com
+ * @Date: 2023-12-05 19:04:21
+ * @LastEditors: LeonardoSya 2246866774@qq.com
+ * @LastEditTime: 2023-12-06 11:01:12
+ * @FilePath: \React\深入理解React Hooks\2_React_v16_hooks.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 ### useState
 *定义变量，使其具备类组件的state，让函数式组件拥有更新视图的能力
 `const [state, setState] = useState(initData)`
@@ -37,3 +45,21 @@ Result:
 惰性初始化是一种延迟创建对象的手段，直到被需要的第一时间才去创建，这样做可以将用于计算 state 的逻辑提取到 reducer 外部，这也为将来对重置 state 的 action 做处理提供了便利。换句话说，如果有 init，就会取代 initialArg。
 
 注意，在reducer中，如果返回的state和之前的state值相同，那么组件将不会更新
+
+
+### useMemo 
+判断是否满足当前的条件来决定是否执行callback。*它在依赖不变的情况下，会返回相同的引用*，避免子组件进行无意义的重复渲染
+`const cacheData = useMemo(fn, deps)`
+fn函数的返回值会作为缓存值
+deps: 依赖项，通过数组的值进行fn的调用，如果发生改变则会得到新的缓存值
+cacheData*即为fn的返回值*，如果deps的依赖值发生改变将重新执行fn，否则读取上一次缓存值
+
+### useCallback 
+与useMemo极其类似，唯一不同点在于useMemo返回是值，useCallback返回的是函数
+注意: useCallback必须配合React.memo进行优化，否则性能会降低
+
+
+### useRef
+*获取当前元素的所有属性*，还能缓存数据
+`const ref = useRef(initialValue)`
+ref返回一个*current对象*，这个current属性就是ref对象需要获取的内容
