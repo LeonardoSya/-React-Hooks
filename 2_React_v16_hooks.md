@@ -1,11 +1,3 @@
-<!--
- * @Author: LeonardoSya 2246866774@qq.com
- * @Date: 2023-12-05 19:04:21
- * @LastEditors: LeonardoSya 2246866774@qq.com
- * @LastEditTime: 2023-12-06 11:01:12
- * @FilePath: \React\深入理解React Hooks\2_React_v16_hooks.md
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
 ### useState
 *定义变量，使其具备类组件的state，让函数式组件拥有更新视图的能力
 `const [state, setState] = useState(initData)`
@@ -54,6 +46,7 @@ fn函数的返回值会作为缓存值
 deps: 依赖项，通过数组的值进行fn的调用，如果发生改变则会得到新的缓存值
 cacheData*即为fn的返回值*，如果deps的依赖值发生改变将重新执行fn，否则读取上一次缓存值
 
+
 ### useCallback 
 与useMemo极其类似，唯一不同点在于useMemo返回是值，useCallback返回的是函数
 注意: useCallback必须配合React.memo进行优化，否则性能会降低
@@ -63,3 +56,20 @@ cacheData*即为fn的返回值*，如果deps的依赖值发生改变将重新执
 *获取当前元素的所有属性*，还能缓存数据
 `const ref = useRef(initialValue)`
 ref返回一个*current对象*，这个current属性就是ref对象需要获取的内容
+
+
+### useImperativeHandle
+暴露给父组件的值&函数
+这个hook可以让不同的模块关联起来，让父组件调用子组件的方法
+`useImperativeHandle(ref, createHandle, deps)`
+ref: 父组件中获取子组件的引用
+createHandle: 子组件中需要暴露给父组件的方法
+deps: 依赖项，通过数组的值进行createHandle的调用，如果发生改变则会得到新的缓存值
+
+
+### useLayoutEffect
+与useEffect基本一致，但是它是同步执行的
+useLayoutEffect: *在浏览器布局(layout)完成之后，页面绘制(paint)之前同步执行*，而*useEffect在浏览器绘制后异步执行*
+这意味着useLayoutEffect**不会引起页面的重新渲染**，这使得它更适合需要立即同步获取布局信息 或 执行DOM操作的场景
+另外，由于同步执行，callback可能会阻塞浏览器绘制
+`useLayoutEffect(callback, deps)`
