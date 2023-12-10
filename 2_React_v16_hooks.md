@@ -56,6 +56,7 @@ cacheData*即为fn的返回值*，如果deps的依赖值发生改变将重新执
 *获取当前元素的所有属性*，还能缓存数据
 `const ref = useRef(initialValue)`
 ref返回一个*current对象*，这个current属性就是ref对象需要获取的内容
+useRef可以用于在函数组件的生命周期中保持可变的值，且不会触发组件的重新渲染
 
 
 ### useImperativeHandle
