@@ -1,3 +1,11 @@
+<!--
+ * @Author: LeonardoSya 2246866774@qq.com
+ * @Date: 2023-12-12 16:14:58
+ * @LastEditors: LeonardoSya 2246866774@qq.com
+ * @LastEditTime: 2023-12-13 18:54:25
+ * @FilePath: \React\深入理解React Hooks\5_测试自定义Hooks.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 单元测试
 单元：函数/模块/组件  单元的基本特征：输入不变返回相同的输出, 越容易写单元测试的软件，模块化结构越好，各模块之间的耦合越弱
 
