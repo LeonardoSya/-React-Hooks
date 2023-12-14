@@ -7,6 +7,8 @@ import useUnmountRef from './useUnmountedRef';
 import useUpdate from './useUpdate';
 import useEventListener from './useEventListener';
 import useReactive from './useReactive';
+import useSelections from './useSelections';
+import useNetWork from './useNetWork';
 
 
 export {
@@ -19,4 +21,6 @@ export {
     useSafeState,
     useEventListener,
     useReactive,
+    useNetWork,
+    useSelections,
 }
