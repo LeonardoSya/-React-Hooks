@@ -13,6 +13,7 @@ const ListItem: React.FC<ListItemProps> = ({ data, isSelected, onToggle }) => (
             padding: '8px',
             margin: '4px',
             cursor: 'pointer',
+            color: '#000'
         }}
         onClick={() => onToggle(data)}
     >
