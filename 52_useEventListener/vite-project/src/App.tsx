@@ -12,8 +12,9 @@ const App: React.FC = () => {
       <h1>Item Selection Example</h1>
       <List items={items} selections={selections} />
       <div>
+        {/* 将selections.selected对象转为JSON、 */}
         <p>Selected Items: {JSON.stringify(selections.selected)}</p>
-        <button onClick={selections.selectAll}>Select All</button>
+        <button onClick={selections.selectAll}>Select All</button> 
         <button onClick={selections.unSelectAll}>Unselect All</button>
       </div>
     </div>
